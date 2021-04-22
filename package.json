@@ -1,0 +1,26 @@
+{
+  "name": "toc-block",
+  "version": "1.0.0",
+  "description": "A collection of blocks to make a TOC",
+  "main": "index.js",
+  "repository": "git@github.com:stephencottontail/toc-block.git",
+  "author": "Stephen Dickinson <stephencottontail@me.com>",
+  "license": "GPL-2.0",
+  "private": true,
+  "dependencies": {
+    "@wordpress/babel-preset-default": "^5.2.1",
+    "@wordpress/dependency-extraction-webpack-plugin": "^3.1.2",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3",
+    "webpack": "^5.35.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^9.0.3",
+    "eslint": "^7.24.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1"
+  }
+}
