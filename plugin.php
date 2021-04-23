@@ -12,14 +12,17 @@ add_action( 'init', function() {
 	
 	wp_register_script( 'toc-block-toc-script', plugins_url( 'dist/toc.js', __FILE__ ), $toc_assets['dependencies'], $toc_assets['version'], true );
 	wp_register_script( 'toc-block-heading-script', plugins_url( 'dist/heading.js', __FILE__ ), $heading_assets['dependencies'], $heading_assets['version'], true );
+	wp_register_style( 'toc-block-styles', plugins_url( 'dist/style.css', __FILE__ ) );
 
 	register_block_type( 'sc/toc', array(
 		'editor_script'   => 'toc-block-toc-script',
-		'render_callback' => 'render_toc_block'
+		'render_callback' => 'render_toc_block',
+		'style'           => 'toc-block-styles'
 	) );
 
 	register_block_type( 'sc/headings', array(
-		'editor_script' => 'toc-block-heading-script'
+		'editor_script' => 'toc-block-heading-script',
+		'style'         => 'toc-block-styles'
 	) );
 } );
 

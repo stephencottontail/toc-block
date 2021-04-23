@@ -2,9 +2,11 @@ import { InspectorControls, RichText } from "@wordpress/block-editor";
 import { PanelBody, SelectControl } from "@wordpress/components";
 import { useInstanceId } from "@wordpress/compose";
 import { Fragment } from "@wordpress/element";
+
+import classnames from "classnames";
 import { PropTypes } from "prop-types";
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ className, attributes, setAttributes }) {
 	const { level, content, alignment } = attributes;
 	const tagName = "h" + level;
 	const uniqueId = useInstanceId(Edit);
@@ -45,6 +47,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 			<RichText
+				className={classnames(className, `is-text-align-${alignment}`)}
 				id={`sc-heading-${uniqueId}`}
 				value={content}
 				onChange={(newContent) => {
@@ -63,6 +66,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 Edit.displayName = "HeadingEdit";
 Edit.propTypes = {
+	className: PropTypes.string.isRequired,
 	attributes: PropTypes.object,
 	setAttributes: PropTypes.func,
 };
