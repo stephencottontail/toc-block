@@ -1,5 +1,6 @@
 import { registerBlockType } from "@wordpress/blocks";
 import edit from "./heading/edit.js";
+import save from "./heading/save.js";
 
 registerBlockType("sc/headings", {
 	title: "Headings",
@@ -23,7 +24,5 @@ registerBlockType("sc/headings", {
 		},
 	},
 	edit,
-	save: () => {
-		return null;
-	},
+	save,
 });
