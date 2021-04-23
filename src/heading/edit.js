@@ -1,10 +1,13 @@
-import { InspectorControls } from "@wordpress/block-editor";
+import { InspectorControls, RichText } from "@wordpress/block-editor";
 import { PanelBody, SelectControl } from "@wordpress/components";
+import { useInstanceId } from "@wordpress/compose";
 import { Fragment } from "@wordpress/element";
 import { PropTypes } from "prop-types";
 
 export default function Edit({ attributes, setAttributes }) {
 	const { level, content, alignment } = attributes;
+	const tagName = "h" + level;
+	const uniqueId = useInstanceId(Edit);
 
 	return (
 		<Fragment>
@@ -41,9 +44,19 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<p>{level.toString() || "no level"}</p>
-			<p>{alignment.toString() || "no alignment"}</p>
-			<p>{content || "Hello from editor!"}</p>
+			<RichText
+				id={`sc-heading-${uniqueId}`}
+				value={content}
+				onChange={(newContent) => {
+					setAttributes({
+						content: newContent,
+						id: `sc-heading-${uniqueId}`,
+					});
+				}}
+				tagName={tagName}
+				placeholder="Heading Text"
+				multiline={false}
+			/>
 		</Fragment>
 	);
 }

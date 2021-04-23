@@ -1,13 +1,12 @@
 import { registerBlockType } from "@wordpress/blocks";
+import edit from "./toc/edit.js";
 
 registerBlockType("sc/toc", {
 	title: "TOC",
 	icon: "editor-ol",
 	attributes: {},
-	edit: () => {
-		return <p>Hello from editor!</p>;
-	},
+	edit,
 	save: () => {
-		return <p>Hello from the front-end!</p>;
+		return null;
 	},
 });

@@ -5,6 +5,10 @@ registerBlockType("sc/headings", {
 	title: "Headings",
 	icon: "heading",
 	attributes: {
+		id: {
+			type: "string",
+			default: "",
+		},
 		level: {
 			type: "number",
 			default: 2,
@@ -20,6 +24,6 @@ registerBlockType("sc/headings", {
 	},
 	edit,
 	save: () => {
-		return <p>Hello from front-end!</p>;
+		return null;
 	},
 });
