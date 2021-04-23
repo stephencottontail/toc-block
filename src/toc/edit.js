@@ -16,21 +16,21 @@ const useHeadings = () => {
 };
 
 export default function Edit({ className, attributes, setAttributes }) {
-	const { list } = attributes;
-	const headings = useHeadings();
+	const { headings } = attributes;
+	const newHeadings = useHeadings();
 
 	useEffect(() => {
-		if (!isEqual(list, headings)) {
-			setAttributes({ list: headings });
+		if (!isEqual(headings, newHeadings)) {
+			setAttributes({ headings: newHeadings });
 		}
-	}, [headings, list, setAttributes]);
+	}, [newHeadings, headings, setAttributes]);
 
 	return (
 		<div className={className}>
 			<h2>Table of Contents</h2>
-			{list && (
+			{headings && (
 				<ul>
-					{list.map((el, idx) => (
+					{headings.map((el, idx) => (
 						<li key={idx}>
 							<a href={`#${el.attributes.id}`}>
 								{el.attributes.content}
